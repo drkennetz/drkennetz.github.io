@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://dksjourney.com/blog/fourthpost/</loc>
-		<lastmod>2018-09-30</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://dksjourney.com/blog/journeyintodevelopment/</loc>
 		<lastmod>2023-06-16</lastmod>
 	</url>
@@ -33,11 +28,6 @@
 	
 	<url>
 		<loc>https://dksjourney.com/tags/life/</loc>
-		<lastmod>2023-06-17</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://dksjourney.com/tags/second-tag/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 </urlset>
