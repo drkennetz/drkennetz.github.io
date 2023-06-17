@@ -2,72 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://dksjourney.com/blog/firstpost/</loc>
+		<loc>https://dksjourney.com/content/blog/firstpost/</loc>
 		<lastmod>2018-05-01</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/blog/secondpost/</loc>
+		<loc>https://dksjourney.com/content/blog/secondpost/</loc>
 		<lastmod>2018-07-04</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/blog/thirdpost/</loc>
+		<loc>https://dksjourney.com/content/blog/thirdpost/</loc>
 		<lastmod>2018-08-24</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/blog/fourthpost/</loc>
+		<loc>https://dksjourney.com/content/blog/fourthpost/</loc>
 		<lastmod>2018-09-30</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/blog/journeyintodevelopment/</loc>
+		<loc>https://dksjourney.com/content/blog/journeyintodevelopment/</loc>
 		<lastmod>2023-06-16</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/about/</loc>
+		<loc>https://dksjourney.com/content/about/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/blog/</loc>
+		<loc>https://dksjourney.com/content/blog/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/</loc>
+		<loc>https://dksjourney.com/content/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/tags/</loc>
+		<loc>https://dksjourney.com/content/tags/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/tags/another-tag/</loc>
+		<loc>https://dksjourney.com/content/tags/another-tag/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/tags/life/</loc>
+		<loc>https://dksjourney.com/content/tags/life/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/tags/number-2/</loc>
+		<loc>https://dksjourney.com/content/tags/number-2/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/tags/second-tag/</loc>
+		<loc>https://dksjourney.com/content/tags/second-tag/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://dksjourney.com/tags/posts-with-two-tags/</loc>
+		<loc>https://dksjourney.com/content/tags/posts-with-two-tags/</loc>
 		<lastmod>2023-06-17</lastmod>
 	</url>
 </urlset>
