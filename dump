@@ -1,0 +1,12 @@
+<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+				{%- for entry in collections.all | eleventyNavigation %}
+					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+				{%- endfor %}
+				</ul>
+				<span class='contact'>
+				  <a aria-label="linkedin" href="https://www.linkedin.com/in/dennis-kennetz-377448142/"><i class="fab fa-linkedin"></i></a>
+				  <a aria-label="github" href="https://github.com/drkennetz"><i class="fab fa-github"></i></a>
+				</span>
+			</nav>
