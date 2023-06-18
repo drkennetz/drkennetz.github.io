@@ -148,6 +148,7 @@ header {
 	border-bottom: solid 1px;
 	display: flex;
 	gap: 1em .5em;
+	flex-wrap: wrap;
 	align-items: center;
 	padding: 1em;
 }
