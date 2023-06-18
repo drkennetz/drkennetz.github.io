@@ -7,7 +7,6 @@
 		<meta name="description" content="Stories take the reader on a journey through the author&#39;s mind. Thanks for exploring mine!">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="DK&#39;s Journey">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="DK&#39;s Journey">
-		
 		<style>.postlist { counter-reset: start-from 2 }
 * { box-sizing: border-box; }
 /* Defaults */
@@ -156,12 +155,22 @@ code {
 
 /* Header */
 header {
+	width: 100%;
+	border-bottom: solid 1px;
 	display: flex;
 	gap: 1em .5em;
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 1em;
 }
+
+.contact{
+	float: right;
+	padding: 0 1rem;
+	margin: 1rem 1rem;
+	font-size: 1.5rem; 
+}
+
 .home-link {
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
@@ -171,10 +180,21 @@ header {
 	text-decoration: none;
 }
 
+footer {
+	border-top: solid 1px;
+	width: 100%;
+	height: 40px;
+	padding-top: 10px;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	text-align: center;
+}
+
 /* Nav */
 .nav {
 	display: flex;
-	padding: 0;
+	padding: 10;
 	margin: 0;
 	list-style: none;
 }
@@ -279,7 +299,14 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+.contact a{
+	padding-right: 21px;
 }</style>
+
+		<script defer="" src="https://kit.fontawesome.com/1b01ea6d0e.js" crossorigin="anonymous"></script>
+
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -294,6 +321,10 @@ h2 + .header-anchor {
 					<li class="nav-item"><a href="/about/">About Me</a></li>
 				</ul>
 			</nav>
+			<span class="contact">
+			  <a aria-label="linkedin" href="https://www.linkedin.com/in/dennis-kennetz-377448142/"><i class="fab fa-linkedin"></i></a>
+			  <a aria-label="github" href="https://github.com/drkennetz"><i class="fab fa-github"></i></a>
+			</span>
 		</header>
 
 		<main id="skip">
@@ -317,7 +348,11 @@ h2 + .header-anchor {
 
 		</main>
 
-		<footer></footer>
+		<footer>
+		  &copy; Dennis Kennetz
+          <br>
+          Thanks for stopping by! <a href="https://11ty.io">Built using 11ty </a><a href="https://github.com/11ty/eleventy-base-blog">base blog</a>.
+		</footer>
 
 		<!-- Current page: /tags/life/ -->
 	</body>

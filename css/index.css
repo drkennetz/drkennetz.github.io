@@ -144,12 +144,22 @@ code {
 
 /* Header */
 header {
+	width: 100%;
+	border-bottom: solid 1px;
 	display: flex;
 	gap: 1em .5em;
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 1em;
 }
+
+.contact{
+	float: right;
+	padding: 0 1rem;
+	margin: 1rem 1rem;
+	font-size: 1.5rem; 
+}
+
 .home-link {
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
@@ -159,10 +169,21 @@ header {
 	text-decoration: none;
 }
 
+footer {
+	border-top: solid 1px;
+	width: 100%;
+	height: 40px;
+	padding-top: 10px;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	text-align: center;
+}
+
 /* Nav */
 .nav {
 	display: flex;
-	padding: 0;
+	padding: 10;
 	margin: 0;
 	list-style: none;
 }
@@ -267,4 +288,8 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+.contact a{
+	padding-right: 21px;
 }

@@ -7,7 +7,6 @@
 		<meta name="description" content="This is my strange trip into software development">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="DK&#39;s Journey">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="DK&#39;s Journey">
-		
 		<style>/**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -323,12 +322,22 @@ code {
 
 /* Header */
 header {
+	width: 100%;
+	border-bottom: solid 1px;
 	display: flex;
 	gap: 1em .5em;
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 1em;
 }
+
+.contact{
+	float: right;
+	padding: 0 1rem;
+	margin: 1rem 1rem;
+	font-size: 1.5rem; 
+}
+
 .home-link {
 	font-size: 1em; /* 16px /16 */
 	font-weight: 700;
@@ -338,10 +347,21 @@ header {
 	text-decoration: none;
 }
 
+footer {
+	border-top: solid 1px;
+	width: 100%;
+	height: 40px;
+	padding-top: 10px;
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	text-align: center;
+}
+
 /* Nav */
 .nav {
 	display: flex;
-	padding: 0;
+	padding: 10;
 	margin: 0;
 	list-style: none;
 }
@@ -446,7 +466,14 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+.contact a{
+	padding-right: 21px;
 }</style>
+
+		<script defer="" src="https://kit.fontawesome.com/1b01ea6d0e.js" crossorigin="anonymous"></script>
+
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -461,6 +488,10 @@ h2 + .header-anchor {
 					<li class="nav-item"><a href="/about/">About Me</a></li>
 				</ul>
 			</nav>
+			<span class="contact">
+			  <a aria-label="linkedin" href="https://www.linkedin.com/in/dennis-kennetz-377448142/"><i class="fab fa-linkedin"></i></a>
+			  <a aria-label="github" href="https://github.com/drkennetz"><i class="fab fa-github"></i></a>
+			</span>
 		</header>
 
 		<main id="skip">
@@ -499,7 +530,7 @@ h2 + .header-anchor {
 <p>During this time, I was a pretty bad student. I mean, I did well in school, but I was having a really hard time balancing research (which is a full time job), teaching 2 labs, and studying for courses. I ended up having these super weird hours, and my sleep schedule sort of flip-flopped. I was pretty unhealthy, but I was also doing really well - until I wasn't. Mentally, I was stressed out. PhD's require grit. Like real grit. And if you don't love what you're doing, it can be hard to push on. In reality, I was immature. Having never had to really work hard at school, it kind of knocked me back a bit to have to study and work at the same time. When the time came to decide between pushing on to a PhD or &quot;master out&quot;, I &quot;mastered out&quot;. (This just means stopping at a Master of Science). My grad school experience went well from an accomplishment standpoint. <a href="https://pubs.acs.org/doi/10.1021/acs.jpcb.6b10775">I published a paper with my group</a>, and was well on my way to publishing a second, with research lined up to finish a third. But I couldn't bear it. I was done with school, like, SO done. I finished my masters and got the heck out of dodge. One thing I took away from all that hard work - I did like programming, just not in that environment.</p>
 <h2 id="my-first-professional-experience" tabindex="-1">My first professional experience <a class="header-anchor" href="#my-first-professional-experience">#</a></h2>
 <p>Even with a MS in Chemistry, getting your first job is hard. I applied to 100+ jobs in my first month out of school, and initially I heard back from 1, which was a sales gig selling Direct TV in Walmart. That stuff is brutal. 12 hour days, cold stopping people to ask if they want your stuff, pestering, bothering, not my personality. I lasted 2 weeks. I'm married - no kids - by this point and my wife and I decided this just wasn't going to work. We could swing it a few months based on what we had saved up before I got my first job. Fortunately, this job had a trial period to see if you'd be a good fit (high turnover job), and at the end of that trial I told him I wouldn't be continuing. He wished me the best.
-This is one of those providential moments in life. When I got off the phone, my wife and I said a prayer. Immediately when the prayer ended, and I mean immediately - like within 2 seconds, I head my phone ring. I picked it up, and it was the Director of the Genomics lab at St. Jude - one of the jobs I had applied for. He was interested in me! We setup a phone interview for 10 days out, had an onsite at the beginning of July, and I started as a research technologist July 31 with $12 in our bank account. Funny story because of how well this job worked out for me, but I was actually the 3rd choice out of 5 final candidates selected for the role. The first was hired, the second got a different job so she turned this one down, and then there was me. I only got hired because another rec was opened up directly under John, my Director and soon to be boss. He hired me <em>because I had some linux experience</em>. Haha.</p>
+This is one of those providential moments in life. When I got off the phone, my wife and I said a prayer. Immediately when the prayer ended, and I mean immediately - like within 2 seconds, I heard my phone ring. I picked it up, and it was the Director of the Genomics lab at St. Jude - one of the jobs I had applied for. He was interested in me! We setup a phone interview for 10 days out, had an onsite at the beginning of July, and I started as a research technologist July 31 with $12 in our bank account. Funny story because of how well this job worked out for me, but I was actually the 3rd choice out of 5 final candidates selected for the role. The first was hired, the second got a different job so she turned this one down, and then there was me. I only got hired because another rec was opened up directly under John, my Director and soon to be boss. He hired me <em>because I had some linux experience</em>. Haha.</p>
 <p>I had no idea how valuable <em>some linux experience</em> would be for my future.</p>
 <p>When I started, there was this process to kick off a process called &quot;demultiplexing&quot; of sequencing runs. It was done on a cluster because it used a good amount of memory and required many cores to be done in a reasonable amount of time. The whole process looked like:</p>
 <ol>
@@ -527,7 +558,11 @@ This is one of those providential moments in life. When I got off the phone, my 
 
 		</main>
 
-		<footer></footer>
+		<footer>
+		  &copy; Dennis Kennetz
+          <br>
+          Thanks for stopping by! <a href="https://11ty.io">Built using 11ty </a><a href="https://github.com/11ty/eleventy-base-blog">base blog</a>.
+		</footer>
 
 		<!-- Current page: /blog/journeyintodevelopment/ -->
 	</body>
