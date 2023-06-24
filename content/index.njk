@@ -5,6 +5,13 @@ eleventyNavigation:
   order: 1
 numberOfLatestPostsToShow: 3
 ---
+
+<h1> <i class="fas fa-tree" aria-hidden="true"></i> {{ metadata.author.name }} </h1>
+<p>Thanks for stopping by my site, where I talk about life and software engineering.
+This can range from things I've seen on the job, to new tech I find interesting.
+If you'd like to read about my journey into engineering, check out this <a href="/blog/journeyintodevelopment/">post</a>.
+</p>
+
 {% set postsCount = collections.posts | length %}
 {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
 <h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
