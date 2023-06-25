@@ -30,7 +30,9 @@ workload. So he gathered up all the numbers, and found a very interesting trend.
 
 Imagine you're a chef and you make pizzas for a living. Like any good pizza chef, you only cook your pizzas in a pizza oven. Your pizzeria is open 6 days a week, and it is absolutely poppin' - but only on Fridays and Saturdays. On Fridays and Saturdays, you have more customers than you do pizza ovens, often leading to huge wait times for your delicious pizza. You realize with all your weekend customers you can afford to buy some new pizza ovens! Good on you. This allows you to handle those peak times a little better, but what about those other pesky days where you aren't that busy? Your pizza ovens sit idle most of the day... and this isn't great. You wish there was some way you could have all the pizza ovens you need on the weekend, but during the week you could rent those pizza ovens out to other pizza chefs who may be in need of them.
 
-![Pizza Oven](https://github.com/drkennetz/drkennetz.github.io/blob/main/content/img/pizza_ovens_by_time.png)
+
+<img alt="pizza_ovens_by_time.png" src="https://github.com/drkennetz/drkennetz.github.io/blob/main/content/img/pizza_ovens_by_time.png?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+
 
 This fun little pizza oven graph shows two things:
 
