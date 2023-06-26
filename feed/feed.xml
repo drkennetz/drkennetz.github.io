@@ -16,8 +16,7 @@
 		<link href="https://dksjourney.com/blog/lessonslearnedmovingtocloud1/"/>
 		<updated>2023-06-25T00:00:00Z</updated>
 		<id>https://dksjourney.com/blog/lessonslearnedmovingtocloud1/</id>
-		<content type="html">&lt;h1 id=&quot;my-journey-in-moving-an-on-premise-cluster-to-the-cloud-1-n&quot; tabindex=&quot;-1&quot;&gt;My Journey in Moving an On Premise Cluster to the Cloud 1/N &lt;a class=&quot;header-anchor&quot; href=&quot;https://dksjourney.com/blog/lessonslearnedmovingtocloud1/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;Wordy enough title, am I right?&lt;/p&gt;
+		<content type="html">&lt;p&gt;Wordy enough title, am I right?&lt;/p&gt;
 &lt;p&gt;Over the past two years, I have had the opportunity to design and develop all the infrastructure and tooling required to transfer an on-premise data center
 to a distributed computing monster in Azure, utilizing their CycleCloud technology. Journey with me as I detail the blood, sweat, and tears that go into
 leading a project like this. I&#39;ll go through why this was even considered in the first place, infrastructure requirements for each, getting CEO/CIO approval, building out the real thing with testing, into initial production and beyond. This was a real test of grit and character, and I&#39;m excited to share this story with you all. I don&#39;t know how many parts this will contain, but I can&#39;t possibly fit it all into one - so I&#39;ve deemed this 1/N. I hope it is captivating enough to follow along with the story!&lt;/p&gt;
