@@ -5,7 +5,6 @@ date: 2023-06-25
 tags: software engineering
 ---
 
-# My Journey in Moving an On Premise Cluster to the Cloud 1/N
 Wordy enough title, am I right?
 
 Over the past two years, I have had the opportunity to design and develop all the infrastructure and tooling required to transfer an on-premise data center
