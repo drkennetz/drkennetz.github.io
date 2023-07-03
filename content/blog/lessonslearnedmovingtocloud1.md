@@ -48,7 +48,7 @@ We would either need to buy more hardware to meet peak demand which would decrea
 
 So this led us to investigate the third option, which was to move to an elastic computing model in the cloud. This model would have a different infrastructure than an on-prem data center model and would be faced with its own challenges, but could potentially solve both problems. 
 
-In the next post, I'll talk about the difference between the on-prem HPC infrastructure and the distributed computing infrastructure in the cloud, and the advantages and disadvantages of both models, as well as how the cloud could be a potential solution to our mutually exclusive problem. I hope you've enjoyed this weekend's post and you'll follow along next week!
+In the next post, before I dive into the solution to the problem stated above, I feel it appropriate to talk about the differences between two computing models - standard vs distributed computing. When we have a grasp on that, I'll touch on two different types of distributed computing: High Performance Computing (HPC) vs High Throughput Computing (HTC) before finally arriving at the solution for our mutually exclusive problem. I hope you are able to learn a lot from these posts as you follow along with my journey.
 
 Thanks for reading,
 
