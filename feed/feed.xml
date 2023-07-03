@@ -4,12 +4,82 @@
 	<subtitle>Stories take the reader on a journey through the author&#39;s mind. Thanks for exploring mine!</subtitle>
 	<link href="https://dksjourney.com/feed/feed.xml" rel="self"/>
 	<link href="https://dksjourney.com/"/>
-	<updated>2023-06-25T00:00:00Z</updated>
+	<updated>2023-07-03T00:00:00Z</updated>
 	<id>https://dksjourney.com/</id>
 	<author>
 		<name>Dennis Kennetz</name>
 		<email>drkennetz@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>My Journey in Moving an On Premise Cluster to the Cloud 2/N - Standard vs Distributed Computing</title>
+		<link href="https://dksjourney.com/blog/lessonslearnedmovetocloud2/"/>
+		<updated>2023-07-03T00:00:00Z</updated>
+		<id>https://dksjourney.com/blog/lessonslearnedmovetocloud2/</id>
+		<content type="html">&lt;p&gt;In the last edition, I spoke about the mutually exclusive problem you face when owning your own hardware, and the initial motivations for us to investigate a cloud-based solution. Read about it &lt;a href=&quot;https://dksjourney.com/blog/lessonslearnedmovingtocloud1/&quot;&gt;here&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;In this article, I initially planned on covering details about on-premises vs cloud high performance computing, but as I began writing I realized that there were additional topics that needed covered prior to making that jump. So today, I will focus on the differences between standard and distributed computing, which should lead into high performance computing and high throughput computing, which fall under the distributed computing domain.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-standard-computing&quot; tabindex=&quot;-1&quot;&gt;What is standard computing? &lt;a class=&quot;header-anchor&quot; href=&quot;https://dksjourney.com/blog/lessonslearnedmovetocloud2/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Before we discuss more advanced computing models in this and later posts, let&#39;s refresh on how standard computing works. Standard computing processes data via serial computing - workloads divide into a series of steps, and then the computer executes those steps one after another on the same processor. Like humans have a &lt;a href=&quot;https://senecalearning.com/en-GB/blog/long-term-memory-vs-working-memory/&quot;&gt;longterm memory vs working memory&lt;/a&gt;, computers have disk storage for longterm access, and random-access memory (RAM). These are the standard locations the processor reads and writes data from / to. So if we relate a computer to a human, the processor is the brain, the disk is the brain, and RAM is the brain...&lt;/p&gt;
+&lt;p&gt;Okay, I admit that wasn&#39;t helpful.&lt;/p&gt;
+&lt;p&gt;Let&#39;s instead use the analogy of moving houses. We will revisit this throughout the post. When we move, consider all the tasks we need to perform:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We must pack all our belongings into boxes&lt;/li&gt;
+&lt;li&gt;We must load all the boxes onto a truck&lt;/li&gt;
+&lt;li&gt;We must drive to our new home&lt;/li&gt;
+&lt;li&gt;We must unload the boxes&lt;/li&gt;
+&lt;li&gt;Sometimes we must repeat steps 2-4&lt;/li&gt;
+&lt;li&gt;We must unpack all the boxes into the appropriate places in our new home&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In the standard, serial computing case, one person would do each of these things until they are complete and then move onto the next thing:&lt;/p&gt;
+&lt;img alt=&quot;single_person_moving_house.png&quot; src=&quot;https://github.com/drkennetz/drkennetz.github.io/blob/main/content/img/single_person_moving_house.png?raw=true&quot; data-hpc=&quot;true&quot; class=&quot;Box-sc-g0xbh4-0 kzRgrI&quot;&gt;
+&lt;p&gt;You might say, &amp;quot;yeah, but we have parallel computing! I could do all these tasks in parallel because we have multi-processing now!&amp;quot; And you&#39;d be correct! This task of moving a house is a good example of a task that can be perfectly parallelized, if done correctly. When I use the term &amp;quot;perfectly parallel&amp;quot;, I am referring to the state where we have resources to do all of these things with a maximized amount of resources available, and each of these steps can use all of the resources to 100% efficiency.&lt;/p&gt;
+&lt;p&gt;A perfectly parallel example of the above might mean that we have 5 friends available to help us move, and each wants to get done as quickly as possible because moving sucks - so we might as well get it over with. So with yourself and 5 friends, the above would look like:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;6 people pack all our belongings into boxes&lt;/li&gt;
+&lt;li&gt;6 people evenly load boxes onto 6 moving trucks&lt;/li&gt;
+&lt;li&gt;6 people drive to our new home&lt;/li&gt;
+&lt;li&gt;6 people unload boxes&lt;/li&gt;
+&lt;li&gt;6 people unpack all the boxes into the appropriate places in our new home&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now that&#39;s what I&#39;m talkin&#39; about! That seems way more effective than serial computing... and it is! When tasks can be parallelized, we get the same thing done much more quickly. Now, there is also the case where only part (or parts) of the process can be parallelized, so we still get increased throughput, but it isn&#39;t quite perfect. This would likely be the case in the moving scenario, because most people wouldn&#39;t rent 6 moving trucks to move a single house. They&#39;d rent one, and they may need to make an additional trip or two, which would slow everything down. This is an important thing to consider when designing compute processes, and even systems!&lt;/p&gt;
+&lt;p&gt;In this instance, parallel computing seems like the solution to our problem. However, what if instead of moving a house, we were moving our entire 10 story office building into a new, 20 story office building because demand is booming? This would be a tall task for me and my 5 friends...&lt;/p&gt;
+&lt;h2 id=&quot;what-is-distributed-computing&quot; tabindex=&quot;-1&quot;&gt;What is Distributed Computing? &lt;a class=&quot;header-anchor&quot; href=&quot;https://dksjourney.com/blog/lessonslearnedmovetocloud2/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We have discussed standard computing and at the end of the last section we eluded to the fact that this may fall short of the situation where we need to do a very large job. Often enough, it isn&#39;t that standard computing couldn&#39;t handle a large task like &amp;quot;moving an office building&amp;quot; it would just take forever. This is often the case with data too (although oftentimes hardware limitations do in fact prevent standard computing from dealing with large volumes of data).&lt;/p&gt;
+&lt;p&gt;So here we introduce distributed computing. In distributed computing, components of the system are shared among multiple networked computers or nodes. In this model, the individual components of the system interact with one another over a network (or networks) in order to achieve a common goal. There are numerous types of distributed systems, and the designs for each really should correspond to the data being processed, and the product being delivered. The pieces should be setup in a way to maximize the efficiency of the system, not any individual part.&lt;/p&gt;
+&lt;p&gt;If we go back to our model of moving the office building for a moment, let&#39;s focus in on one component - loading the boxes into the truck and driving them to our new building. For the sake of our example, let&#39;s position our new office to be an hour away from our current office. Consider the following two cases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;My friends and I load up a truck that is already on site, and I drive the boxes to the new office location, and unload them.&lt;/li&gt;
+&lt;li&gt;My friends and I pack up the boxes and put them on a loading ramp, where one of many trucks will come. Each subsequent truck will arrive 30 minutes after the truck before it on a schedule, load the boxes, and drive them to the new office location, and unload them.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So when we take a look at the next section, let&#39;s discern how distributed systems optimize for throughput, rather than latency.&lt;/p&gt;
+&lt;h3 id=&quot;latency-versus-throughput&quot; tabindex=&quot;-1&quot;&gt;Latency versus Throughput &lt;a class=&quot;header-anchor&quot; href=&quot;https://dksjourney.com/blog/lessonslearnedmovetocloud2/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Let&#39;s start with some definitions:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Latency&lt;/strong&gt; in computer land refers to the amount of time it takes before a transfer of data &lt;strong&gt;begins&lt;/strong&gt; following the &lt;strong&gt;instruction&lt;/strong&gt; for its transfer. A human example of this is if I told my friend to pick up a box and put it in the truck, and it took my friend 15 seconds to move before beginning the task, the latency of that instruction would be 15 seconds.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Throughput&lt;/strong&gt; simply refers to the quantity of data we can process in a given time. In our moving example, this is how many boxes we can get done in an hour.&lt;/p&gt;
+&lt;p&gt;I started with these definitions so we could adequately break down the points at the end of the distributed computing intro. The first scenario where my friends and I load the boxes, drive them, and unload them optimizes for &lt;strong&gt;latency&lt;/strong&gt; - the time it takes us to do this task a single time will be much faster for a single truck than it will in the case for trucks arriving on schedule.&lt;/p&gt;
+&lt;p&gt;This is because in the schedule situation, we may finish getting all the boxes on the ramp 10 minutes after the previous truck leaves, meaning we would need to wait 20 minutes before the next truck even arrives. They would then need to load the truck before leaving, which would add additional time.&lt;/p&gt;
+&lt;p&gt;When my friends and I do it, we can &lt;strong&gt;immediately&lt;/strong&gt; put the boxes on the truck, cutting out that loading time, and drive as soon as we get all the boxes out for a truck full. We could potentially cut down 25 minutes on that single task!&lt;/p&gt;
+&lt;img alt=&quot;latency_vs_throughput.png&quot; src=&quot;https://github.com/drkennetz/drkennetz.github.io/blob/main/content/img/latency_vs_throughput.png?raw=true&quot; data-hpc=&quot;true&quot; class=&quot;Box-sc-g0xbh4-0 kzRgrI&quot;&gt;
+&lt;p&gt;We can see how this would be great if we had to do this a single time - we&#39;d save 25 minutes! But when moving an office building, we&#39;d likely do this tens to hundreds of times - and this is where optimizing for throughput comes in.&lt;/p&gt;
+&lt;p&gt;Using the same example as above, after unloading the boxes (which takes 10 minutes) we&#39;d have to drive back an hour just to begin the next batch. We&#39;d then take an additional 10 minutes to load the boxes, drive an hour back, etc. etc. And we&#39;d be working all the time!&lt;/p&gt;
+&lt;p&gt;This means for 2 complete truckloads of boxes, we&#39;d need to take:&lt;/p&gt;
+&lt;p&gt;(10m to load) + (60m to drive to) + (10m to unload) + (60m to drive back) + (10m to load) + (60m to drive to) + (10m to unload)&lt;/p&gt;
+&lt;p&gt;= 10+60+10+60+10+60+10 = 220 minutes&lt;/p&gt;
+&lt;p&gt;Contrast that to 2 truckloads for the schedule:&lt;/p&gt;
+&lt;p&gt;(10m to load) + (25m next truck + load) + (60m to drive) - but while this driving is taking place, the next truck is already in route, so do we really include the drive time? The answer is kind of... It looks a bit more like this:&lt;/p&gt;
+&lt;p&gt;(30m for truck1) + (60m drive - 30m for truck2 + 10 to unload) + (60m drive - 30m for truck3 + 10 to unload)... to N trucks:&lt;/p&gt;
+&lt;p&gt;= 30 + (60 - 30 + 10) + (60 - 30 + 10) = 110 minutes&lt;/p&gt;
+&lt;p&gt;Basically, we offset the cost associated with a single trip by always having many trucks circulating through, which eliminates that pesky time to drive back:&lt;/p&gt;
+&lt;img alt=&quot;trucks_in_circular_route.png&quot; src=&quot;https://github.com/drkennetz/drkennetz.github.io/blob/main/content/img/trucks_in_circular_route.png?raw=true&quot; data-hpc=&quot;true&quot; class=&quot;Box-sc-g0xbh4-0 kzRgrI&quot;&gt;
+&lt;p&gt;To summarize this section, when we have many trucks in rotation, the cost of doing this a single time is more expensive - IE it has higher latency. For every single instance of a truck taking this route, the latency will ALWAYS be higher with respect to that single truck. But when we consider the cost of the whole system, the throughput will also be much higher because the latency cost of a single truck is offset by distributing the workload to many trucks over many trips.&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot; tabindex=&quot;-1&quot;&gt;Summary &lt;a class=&quot;header-anchor&quot; href=&quot;https://dksjourney.com/blog/lessonslearnedmovetocloud2/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This is how distributed computing systems work. The latency of a single operation between two separate components of the system &lt;strong&gt;will&lt;/strong&gt; be higher than in standard computing because the operation will occur over a network. In standard computing, the two operations will occur on the same machine, so the latency is just the process communicating with another part of the same machine.&lt;/p&gt;
+&lt;p&gt;Standard computing will work fine up until a volume threshold - your computer can handle a fairly large number of tasks. But when we scale to thousands, then millions, then billions of operations, the throughput optimized distributed system wins out.&lt;/p&gt;
+&lt;p&gt;In the next post, I&#39;ll talk about two different types of distributed systems used for performing analyses on large quantities of data - High Performance Computing (HPC) and High Throughput Computing (HTC). I&#39;ll touch on the advantages and disadvantages of each, and when they are appropriate to use. After painting this picture, I&#39;ll (hopefully) arrive at the decision which led our team to the cloud in an effort to solve our mutually exclusive problem (see last post for details).&lt;/p&gt;
+&lt;p&gt;As always, thanks for reading!&lt;/p&gt;
+&lt;p&gt;Dennis&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>My Journey in Moving an On Premise Cluster to the Cloud 1/N</title>
@@ -46,7 +116,7 @@ workload. So he gathered up all the numbers, and found a very interesting trend.
 &lt;/ol&gt;
 &lt;p&gt;We would either need to buy more hardware to meet peak demand which would decrease utilization leading to more waste (the more likely scenario), or we would need to buy less cores to increase percent utilization decreasing waste but increasing pending time - ultimately decreasing throughput (no one would go for this from a data processing perspective).&lt;/p&gt;
 &lt;p&gt;So this led us to investigate the third option, which was to move to an elastic computing model in the cloud. This model would have a different infrastructure than an on-prem data center model and would be faced with its own challenges, but could potentially solve both problems.&lt;/p&gt;
-&lt;p&gt;In the next post, I&#39;ll talk about the difference between the on-prem HPC infrastructure and the distributed computing infrastructure in the cloud, and the advantages and disadvantages of both models, as well as how the cloud could be a potential solution to our mutually exclusive problem. I hope you&#39;ve enjoyed this weekend&#39;s post and you&#39;ll follow along next week!&lt;/p&gt;
+&lt;p&gt;In the next post, before I dive into the solution to the problem stated above, I feel it appropriate to talk about the differences between two computing models - standard vs distributed computing. When we have a grasp on that, I&#39;ll touch on two different types of distributed computing: High Performance Computing (HPC) vs High Throughput Computing (HTC) before finally arriving at the solution for our mutually exclusive problem. I hope you are able to learn a lot from these posts as you follow along with my journey.&lt;/p&gt;
 &lt;p&gt;Thanks for reading,&lt;/p&gt;
 &lt;p&gt;Dennis&lt;/p&gt;
 </content>
